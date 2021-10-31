@@ -3,7 +3,7 @@ let b = +prompt('b','');
 let operation = prompt('Оператор:', 'sum - "+",diff - "-", multi - "*", divi - "/", rem - "%", exp - "**"');
 
 function Calc(operation,a,b) {
-  if (operation == undefined || a == undefined || b == undefined || isNaN(a) || isNaN(b)) {
+  if (!operation || !a || !b ) {
     return 'Error';
   }  else if (operation == 'sum') {
     return a + b;
