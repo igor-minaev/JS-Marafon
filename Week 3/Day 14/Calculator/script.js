@@ -1,47 +1,53 @@
-//Version 1
-let a = +prompt('a:','');
-let b = +prompt('b','');
-let operation = prompt('Оператор:', 'sum - "+",diff - "-", multi - "*", divi - "/", rem - "%", exp - "**"');
 
+// Version 1
 function Calc(operation,a,b) {
-  if (!operation || !a || !b ) {
+  const isNotValid = (!operation || !a || !b || typeof a !== 'number' || typeof b !== 'number' );
+
+  if (isNotValid ) {
     return 'Error';
-  }  else if (operation == 'sum') {
+  }  else if (operation === 'sum') {
     return a + b;
-  } else if (operation == 'diff') {
+  } else if (operation === 'diff') {
     return a - b;
-  } else if (operation == 'multi') {
+  } else if (operation === 'multi') {
     return a * b;
-  } else if (operation == 'divi') {
+  } else if (operation === 'divi') {
     return a / b;
-  } else if (operation == 'rem') {
+  } else if (operation === 'rem') {
     return a % b;
-  } else if (operation == 'exp') {
+  } else if (operation === 'exp') {
     return a ** b;
   } else {
     return 'unknown operation';
   }
 }
 
-let result = Calc(operation,a,b);
-alert(result);
+
+console.log(Calc('diff',1,3));
+console.log(Calc('diff',true,3));
+console.log(Calc('diff','r',3));
+console.log(Calc(1,2,3));
+console.log(Calc('diff','r',''));
 
 
-// Version 2
+//Version 2
 /* function Calc(operation,a,b) {
-  if (!operation || !a || !b || typeof a != 'number' || typeof b != 'number' ) {
+  function isNotValidOperator(operator) {
+    return (!(operator) || typeof operator !== 'number');
+  }
+  if (!operation || isNotValidOperator(a) || isNotValidOperator(b) ) {
     return 'Error';
-  }  else if (operation == 'sum') {
+  }  else if (operation === 'sum') {
     return a + b;
-  } else if (operation == 'diff') {
+  } else if (operation === 'diff') {
     return a - b;
-  } else if (operation == 'multi') {
+  } else if (operation === 'multi') {
     return a * b;
-  } else if (operation == 'divi') {
+  } else if (operation === 'divi') {
     return a / b;
-  } else if (operation == 'rem') {
+  } else if (operation === 'rem') {
     return a % b;
-  } else if (operation == 'exp') {
+  } else if (operation === 'exp') {
     return a ** b;
   } else {
     return 'unknown operation';
