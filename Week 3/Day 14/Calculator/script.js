@@ -1,7 +1,7 @@
 
 // Version 1
 function Calc(operation,a,b) {
-  const isNotValid = (!operation || a == 'undefined' ||  b =='undefined' || typeof a !== 'number' || typeof b !== 'number' || b === 0 );
+  const isNotValid = (!operation || a == 'undefined' ||  b =='undefined' || typeof a !== 'number' || typeof b !== 'number');
 
   if (isNotValid) {
     return "Error";
@@ -10,19 +10,19 @@ function Calc(operation,a,b) {
   switch (operation) {
     case "sum":
       return a + b;
-      break;
 
     case "diff":
       return a - b;
-      break;
 
     case "multi":
       return a * b;
-      break;
 
     case "divi":
-      return a / b;
-      break;
+      if (b === 0) {
+        return "Error. You can't divide by zero"
+      } else {
+        return a / b;
+      }
 
     case "rem":
       return a % b;
