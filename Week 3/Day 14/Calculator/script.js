@@ -1,7 +1,11 @@
-
 // Version 1
-function Calc(operation,a,b) {
-  const isNotValid = (!operation || a == 'undefined' ||  b =='undefined' || typeof a !== 'number' || typeof b !== 'number');
+function Calc(operation, a, b) {
+  const isNotValid =
+    !operation ||
+    a == "undefined" ||
+    b == "undefined" ||
+    typeof a !== "number" ||
+    typeof b !== "number";
 
   if (isNotValid) {
     return "Error";
@@ -19,31 +23,33 @@ function Calc(operation,a,b) {
 
     case "divi":
       if (b === 0) {
-        return "Error. You can't divide by zero"
+        return "Error. You can't divide by zero";
       } else {
         return a / b;
       }
 
     case "rem":
-      return a % b;
-      break;
+      if (b === 0) {
+        return "Error. You can't divide by zero";
+      } else {
+        return a % b;
+      }
 
     case "exp":
       return a ** b;
 
     default:
       return "unknown operation";
-    }
+  }
 }
 
-console.log(Calc('diff',1,3));
-console.log(Calc('diff',true,3));
-console.log(Calc('diff','r',3));
-console.log(Calc(1,2,3));
-console.log(Calc('diff','r',''));
-console.log(Calc('divi',0,2));
-console.log(Calc('divi',5,0));
-
+console.log(Calc("diff", 1, 3));
+console.log(Calc("diff", true, 3));
+console.log(Calc("diff", "r", 3));
+console.log(Calc(1, 2, 3));
+console.log(Calc("diff", "r", ""));
+console.log(Calc("divi", 0, 2));
+console.log(Calc("divi", 5, 0));
 
 //Version 2
 /* function Calc(operation,a,b) {
