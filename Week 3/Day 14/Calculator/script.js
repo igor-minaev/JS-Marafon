@@ -2,12 +2,8 @@
 
 function Calc(operation, a, b) {
   const isNotValid =
-<<<<<<< HEAD
     !operation || typeof a !== "number" || typeof b !== "number" || isNaN(a) || isNaN(b);
-=======
-    !operation || typeof a !== "number" || typeof b !== "number";
->>>>>>> 1d3c59e2587ed7663b88a3fe0046f93cc5a6f63f
-
+    
   const isNotPossibleDivide =
     b === 0 && (operation === "divi" || operation === "rem");
 
@@ -41,10 +37,7 @@ console.log(Calc("diff", "r", ""));
 console.log(Calc("divi", 0, 2));
 console.log(Calc("divi", 5, 0)); 
 console.log(Calc("divi", 5,)); 
-<<<<<<< HEAD
 console.log(Calc("divi", 5, NaN)); 
-=======
->>>>>>> 1d3c59e2587ed7663b88a3fe0046f93cc5a6f63f
 
 
 //Version 1
