@@ -1,5 +1,47 @@
-// Version 1
+//С использованием object
+
 function Calc(operation, a, b) {
+  const isNotValid =
+    !operation || typeof a !== "number" || typeof b !== "number" || isNaN(a) || isNaN(b);
+
+  const isNotPossibleDivide =
+    b === 0 && (operation === "divi" || operation === "rem");
+
+  const operations = {
+    "sum": a + b,
+    "diff": a - b,
+    "multi": a * b,
+    "divi": a / b,
+    "rem": a % b,
+    "exp": a ** b
+  }    
+  
+  if (isNotValid) {
+    return "Error";
+  } else if (isNotPossibleDivide){
+    return "Error. You can't divide by zero";
+  } else if (operation in operations) {
+    return operations[operation];
+  } else {
+    return "unknown operation";
+  }
+}
+  
+
+
+console.log(Calc("diff", 1, 3));
+console.log(Calc("diff", true, 3));
+console.log(Calc("diff", "r", 3));
+console.log(Calc(1, 2, 3));
+console.log(Calc("diff", "r", ""));
+console.log(Calc("divi", 0, 2));
+console.log(Calc("divi", 5, 0)); 
+console.log(Calc("divi", 5,)); 
+console.log(Calc("divi", 5, NaN)); 
+
+
+//Version 1
+/* function Calc(operation, a, b) {
   const isNotValid =
     !operation ||
     a == "undefined" ||
@@ -49,7 +91,7 @@ console.log(Calc("diff", "r", 3));
 console.log(Calc(1, 2, 3));
 console.log(Calc("diff", "r", ""));
 console.log(Calc("divi", 0, 2));
-console.log(Calc("divi", 5, 0));
+console.log(Calc("divi", 5, 0)); */
 
 //Version 2
 /* function Calc(operation,a,b) {
