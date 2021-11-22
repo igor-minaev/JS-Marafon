@@ -50,8 +50,6 @@ showList(); */
 
 
 const list = [];
-const priorities = ['low', 'high'];
-const statuses = ['To Do', 'In progres', 'Done'];
 let count = 0;
 
 function addTask(task, priority = 'low') {
@@ -63,18 +61,31 @@ function addTask(task, priority = 'low') {
   });
 }
 
-function deleteTask(task) {
-  let taskIndex = list.findIndex(item => item.name === task);
+function deleteTask(id) {
+  let taskIndex = list.findIndex(item => item.id === id);
   list.splice(taskIndex,1);
 }
+function changeStatus(id, status) {
+  let taskIndex = list.findIndex((item) => item.id === id);
+  list[taskIndex].status = status;
+}
+function changePriority(id, priority) {
+  let taskIndex = list.findIndex((item) => item.id === id);
+  list[taskIndex].priority = priority;
+}
+
+
 
 console.log(list);
-addTask('do homework', 'high');
+addTask('do homework');
 addTask("go to the shop");
 addTask("read the book", "high");
 console.log(list);
-deleteTask("go to the shop");
+deleteTask(1);
 console.log(list);
-
+changeStatus(2, "In Progress");
+console.log(list);
+changePriority(0, 'high');
+console.log(list);
 
 
