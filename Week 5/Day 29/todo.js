@@ -74,12 +74,45 @@ function changePriority(id, priority) {
   list[taskIndex].priority = priority;
 }
 
+function sortTasksStatus(status) {
+  console.log(status);
+  for (let i = 0; i < list.length; i++) {
+    if(list[i].status === status) {
+      console.log(list[i].name);
+    }
+  }
+}
+
+function sortTasksPriority(priority) {
+  console.log(priority);
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].priority === priority) {
+      console.log(list[i].name);
+    }
+  }
+}
+
+function showListStatus() {
+  sortTasksStatus("To Do");
+  sortTasksStatus("In Progress");
+  sortTasksStatus("Done");
+}
+
+
+function showListPriority() {
+  sortTasksPriority("low");
+  sortTasksPriority("high");
+}
+
+
 
 
 console.log(list);
 addTask('do homework');
 addTask("go to the shop");
 addTask("read the book", "high");
+addTask("clean the room");
+addTask("have a shower");
 console.log(list);
 deleteTask(1);
 console.log(list);
@@ -87,5 +120,11 @@ changeStatus(2, "In Progress");
 console.log(list);
 changePriority(0, 'high');
 console.log(list);
+changeStatus(4, "Done");
+console.log(list);
+console.log();
+showListStatus();
+console.log();
+showListPriority();
 
 
